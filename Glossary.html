@@ -2,7 +2,7 @@
 title: Glossary
 description: 
 published: true
-date: 2023-04-15T22:28:55.993Z
+date: 2023-04-15T22:36:25.103Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-15T16:45:06.486Z
@@ -27,11 +27,11 @@ dateCreated: 2023-04-15T16:45:06.486Z
 <p><strong>UNet</strong> - a component of latent diffusion models. Helps to gradually remove noise from the initial noisy image to produce the final output (<a href="https://jalammar.github.io/illustrated-stable-diffusion/">source</a>)</p>
 <p><strong>VAE</strong> - stands for variational autoencoder, and is one of the components of latent diffusion models. Composed of two parts, an encoder and a decoder. While the encoder responsible for transforming images from pixel space to latent space, the decoder transforms the latent representation back into an image. VAEs speed up the both the training and inference of latent diffusion models by allowing both to occur in latent space. Note that during inference, only the decoder is used (<a href="https://jalammar.github.io/illustrated-stable-diffusion/">source</a>, <a href="https://arxiv.org/pdf/2112.10752.pdf">source</a>)</p>
 <h2>Model training - key concepts</h2>
-<p><strong>Overfitting</strong> - TBD</p>
-<p><strong>Dreambooth</strong> - a method to fine tune models. Tries to solve the problems of overfitting Requires not only training images, but also “class” or “regularization” images. These class images are used to ensure that&nbsp;</p>
-<p><strong>Native fine tuning</strong> - fine tuning a model without Dreambooth</p>
-<p>Lora</p>
-<p>Full model</p>
+<p><strong>Under-training</strong> - occurs when your model has not adequately learned the concept you have in mind, because you have not trained it for enough steps. If you are trying to teach your model what Scooby Doo looks like, but it's producing photos of dalmatians, then it may be because you are under-training.&nbsp;</p>
+<p><strong>Over-training</strong> - the opposite of under-training. Occurs when your model has been trained for too many steps so that while it has learned the concept it has in mind, it's learned the concept “too” well so it can't produce anything else. For example, if your model always produces Scooby Doo whether you ask for a german shepherd or a cat, then your model may be overtrained.</p>
+<p><strong>Dreambooth</strong> - a method to fine tune models. Requires not only “instance” images for training, but also “class” / “regularization” images from the general category the instance falls under. For example if the instance is Scooby Doo, then the class can be “dog”. Roughly speaking, Dreambooth tries to teach the model a new concept ("instance") while not harming the model's ability to reproduce images from the class.&nbsp;</p>
+<p><strong>Native fine tuning</strong> - fine tuning a model without Dreambooth.</p>
+<p><strong>LoRA</strong> - a training method which produces a smaller file size. See “LoRA” section for more details.&nbsp;</p>
 <h2>Model training - detailed terms</h2>
 <p><strong>Epochs</strong> - the cycle of examining each of the instance dataset images once (<a href="https://www.reddit.com/r/StableDiffusion/comments/y6gjjz/question_about_training_epochs/">source</a>)</p>
 <p><strong>Batch size</strong> - the number of images processed at once during training (<a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/discussions/4814">source</a>, <a href="https://github.com/victorchall/EveryDream-trainer">source</a>). Increasing speeds up training at the cost of increased VRAM usage.</p>
