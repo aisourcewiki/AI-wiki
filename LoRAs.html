@@ -2,14 +2,14 @@
 title: LoRA
 description: 
 published: true
-date: 2023-04-15T17:53:50.570Z
+date: 2023-04-15T17:58:45.509Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-15T17:30:42.006Z
 -->
 
 <h1>LoRAs</h1>
-<h2>Training - notebooks and repositories</h2>
+<h2>Training</h2>
 <h3><strong>Native fine tuning</strong></h3>
 <figure class="table">
   <table>
@@ -63,6 +63,12 @@ dateCreated: 2023-04-15T17:30:42.006Z
     </tbody>
   </table>
 </figure>
+<h2>Inference</h2>
+<h4>Auto1111</h4>
+<ul>
+  <li>Regular LoRAs are supported without extensions as of 1/23/23 (<a href="https://www.reddit.com/r/StableDiffusion/comments/10igjt2/auto1111_lora_native_support/">link</a>)</li>
+  <li>Guide to using Lycoris (<a href="https://www.kombitz.com/2023/03/29/how-to-use-lycoris-locon-loha-models-with-automatic1111s-stable-diffusion-web-ui/">link</a>)</li>
+</ul>
 <h2>Terminology</h2>
 <p><strong>LoRA </strong>- stands for low-rank adaptation, a mathematical technique to reduce the number of parameters that are trained. Results in a smaller model which is also faster to train. Technique can be applied to other types of models including LLMs, but has been especially popular for text-to-image models like Stable Diffusion (<a href="https://replicate.com/blog/lora-faster-fine-tuning-of-stable-diffusion">source</a>).</p>
 <p><strong>Rank </strong>- rank is the size of the new “smaller” matrix used to store model weights. This is a tunable parameters, which can be increased to store more details but at the expense of larger file size (<a href="https://github.com/microsoft/LoRA">source</a>, for LLMs)</p>
