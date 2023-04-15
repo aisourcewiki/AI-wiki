@@ -2,21 +2,22 @@
 title: Glossary
 description: 
 published: true
-date: 2023-04-15T21:46:23.884Z
+date: 2023-04-15T21:56:41.924Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-15T16:45:06.486Z
 -->
 
 <h1>Terms</h1>
-<h2>Diffusion models</h2>
+<h2>Background</h2>
 <p><strong>Diffusion model</strong> - a type of machine learning model which can produce a final result (e.g. an image) through a step-by-step process of removing noise, known as a diffusion process. In addition to image generation, they can also be used for video generation, audio synthesis, and reinforcement learning (<a href="https://huggingface.co/blog/stable_diffusion">source</a>, <a href="https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/diffusers_intro.ipynb">source</a>)&nbsp;</p>
 <p><strong>Latent diffusion model </strong>- a type of diffusion model in which the diffusion process occurs in a lower dimensional (i.e. smaller) space called the latent space. Because the latent space is smaller, the image generation process is faster and takes less memory. Latent diffusion models have three main components - VAE, UNet, and text encoder (<a href="https://huggingface.co/blog/stable_diffusion">source</a>).</p>
 <p><strong>Pixel space</strong> - where you are operating on the pixels of uncompressed images (<a href="https://huggingface.co/blog/stable_diffusion">source</a>)</p>
 <p><strong>Latent space </strong>- the compressed space on which latent diffusion models operate. The VAE is responsible for transforming images from pixel space to the latent space (<a href="https://huggingface.co/blog/stable_diffusion">source</a>)</p>
-<p><strong>VAE</strong> - stands for variational autoencoder, and is one of the components of latent diffusion models. Responsible for transforming images from pixel space to latent space. For model training, used to compress images from pixel space into the latent space to speed up the training process for the diffusion model. Also used to decode images during inference (<a href="https://jalammar.github.io/illustrated-stable-diffusion/">source</a>, <a href="https://arxiv.org/pdf/2112.10752.pdf">source</a>)</p>
-<p><strong>UNet</strong> - a component of the “diffusion model”. Helps to gradually remove noise from the initial noisy image to produce the final output (<a href="https://jalammar.github.io/illustrated-stable-diffusion/">source</a>)</p>
-<p><strong>Text encoder</strong> -&nbsp;</p>
+<h2>Latent diffusion model - components</h2>
+<p><strong>VAE</strong> - stands for variational autoencoder, and is one of the components of latent diffusion models. Composed of two parts, an encoder and a decoder. While the encoder responsible for transforming images from pixel space to latent space, the decoder transforms the latent representation back into an image. VAEs speed up the both the training and inference of latent diffusion models by allowing both to occur in latent space (<a href="https://jalammar.github.io/illustrated-stable-diffusion/">source</a>, <a href="https://arxiv.org/pdf/2112.10752.pdf">source</a>)</p>
+<p><strong>UNet</strong> - a component of latent diffusion models. Helps to gradually remove noise from the initial noisy image to produce the final output (<a href="https://jalammar.github.io/illustrated-stable-diffusion/">source</a>)</p>
+<p><strong>Text encoder</strong> - a component of latent diffusion models. Responsible for transforming the input prompt (e.g. "An astronaut riding a horse") into the latent space so it can be understood by the U-Net (<a href="https://jalammar.github.io/illustrated-stable-diffusion/">source</a>)</p>
 <h2>Model training</h2>
 <p><strong>Dreambooth - </strong>a method used to fine tune text-to-image models. <strong>(clarify)</strong></p>
 <p><strong>EMA </strong>- exponential moving average, a technique used to improve inference performance and reduce the risk of "last-iterations overfitting" by taking the average of weights over a final period. Should be used only for inference, resuming model training (and perhaps fine tuning) should occur on the final (not averaged) weights (<a href="https://www.reddit.com/r/MachineLearning/comments/ucflc2/d_understanding_the_use_of_ema_in_diffusion_models/">source</a>, <a href="https://www.reddit.com/r/StableDiffusion/comments/x5am4v/ema_model_vs_non_ema_differences/">source</a>, <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1/discussions/22">source)</a></p>
