@@ -2,14 +2,14 @@
 title: LoRA
 description: 
 published: true
-date: 2023-04-15T17:40:56.166Z
+date: 2023-04-15T17:53:50.570Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-15T17:30:42.006Z
 -->
 
 <h1>LoRAs</h1>
-<h2>Notebooks and repositories</h2>
+<h2>Training - notebooks and repositories</h2>
 <h3><strong>Native fine tuning</strong></h3>
 <figure class="table">
   <table>
@@ -64,7 +64,11 @@ dateCreated: 2023-04-15T17:30:42.006Z
   </table>
 </figure>
 <h2>Terminology</h2>
-<p>&nbsp;</p>
+<p><strong>LoRA </strong>- stands for low-rank adaptation, a mathematical technique to reduce the number of parameters that are trained. Results in a smaller model which is also faster to train. Technique can be applied to other types of models including LLMs, but has been especially popular for text-to-image models like Stable Diffusion (<a href="https://replicate.com/blog/lora-faster-fine-tuning-of-stable-diffusion">source</a>).</p>
+<p><strong>Rank </strong>- rank is the size of the new “smaller” matrix used to store model weights. This is a tunable parameters, which can be increased to store more details but at the expense of larger file size (<a href="https://github.com/microsoft/LoRA">source</a>, for LLMs)</p>
+<p><strong>LyCORIS </strong>-<strong> </strong>a project for making different algorithms for finetuning SD in parameter-efficient way, including LoRA (<a href="https://www.reddit.com/r/StableDiffusion/comments/11oz3z9/what_are_lycoris_lockon_models_and_what_is/">source</a>)</p>
+<p><strong>LoHA </strong>-<strong> </strong>LoRA with Hadamard Product representation (LoHa). A specific type of LoRA which is more parameter efficient (<a href="https://github.com/KohakuBlueleaf/LyCORIS">source</a>, <a href="https://www.reddit.com/r/StableDiffusion/comments/11rbada/what_the_hell_is_a_loconloha_model/">source</a>)</p>
+<p><strong>LoCon - </strong>LoRA using convolution (<a href="https://www.reddit.com/r/StableDiffusion/comments/11oz3z9/what_are_lycoris_lockon_models_and_what_is/">source</a>)</p>
 <h2>Guides</h2>
 <ul>
   <li><a href="https://rentry.org/lora-training-science">https://rentry.org/lora-training-science</a></li>
