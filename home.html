@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T18:08:38.431Z
+date: 2023-04-16T18:09:33.699Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -29,7 +29,7 @@ dateCreated: 2023-04-08T19:53:51.877Z
   <li><strong>Quality of data</strong> - the underlying training dataset includes images, but they aren't high quality enough. Example - base SD's training dataset has many pictures of Pikachu, but the quality is highly inconsistent (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=pikachu&amp;_sort=rowid">source</a>).</li>
   <li><strong>Aesthetic preferences</strong> - if the underlying training dataset has many relevant high quality images, but they are not consistently of the particular aesthetic you want, it can often be difficult to get the model to express the desired result. An alternate solution is just to fine tune a model with examples of the particular aesthetic, so the fine tuned model can express it easily. This can be an issue that affects concepts which are subjects, objects, or styles.</li>
 </ul>
-<h2>Fine tuning process</h2>
+<h2>Fine tuning process - overview</h2>
 <p>The process for fine tuning a model is as follows, at a high level:</p>
 <ul>
   <li><strong>1) Decide concept&nbsp;</strong>
@@ -60,6 +60,7 @@ dateCreated: 2023-04-08T19:53:51.877Z
   </li>
 </ul>
 <p>As mentioned in the last step, the process above is meant to be iterative. It's fairly normal to test out multiple variations of captioning strategies or training parameter settings before arriving at good results.</p>
+<h2>Fine tuning process - detailed steps</h2>
 <h3>1) Picking a concept</h3>
 <p>Pick a subject, object, or style that you want to be able to express.</p>
 <h3>2a) Images</h3>
