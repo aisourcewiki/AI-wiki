@@ -2,7 +2,7 @@
 title: LoRA
 description: 
 published: true
-date: 2023-04-15T18:16:09.802Z
+date: 2023-04-16T18:13:22.009Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-15T17:30:42.006Z
@@ -12,74 +12,13 @@ dateCreated: 2023-04-15T17:30:42.006Z
 <h2>Intro</h2>
 <p>LoRA stands for low-rank adaptation. It is a way to train a model that results in a smaller model size (~3-200MB &lt;&lt; 2GB), and can be used with either native fine tuning or Dreambooth.</p>
 <p>Please refer to the information on training/inference for full models before proceeding further, since much of the info here is dependent on that prior knowledge.&nbsp;</p>
-<h2>Training</h2>
-<h3><strong>Native fine tuning</strong></h3>
-<figure class="table">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Github</th>
-        <th>Runpod</th>
-        <th>Colab</th>
-        <th>Other</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Kohya LoRA finetuner</td>
-        <td>-</td>
-        <td>-</td>
-        <td><a href="https://colab.research.google.com/github/Linaqruf/kohya-trainer/blob/main/kohya-LoRA-finetuner.ipynb">Link</a></td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>Kohya GUI</td>
-        <td><a href="https://github.com/bmaltais/kohya_ss#finetune">Link</a></td>
-        <td><a href="https://github.com/bmaltais/kohya_ss/discussions/379">Link</a></td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-<h3>Dreambooth</h3>
-<figure class="table">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Github</th>
-        <th>Runpod</th>
-        <th>Colab</th>
-        <th>Other</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Kohya LoRA Dreambooth</td>
-        <td>-</td>
-        <td>-</td>
-        <td><a href="https://colab.research.google.com/github/Linaqruf/kohya-trainer/blob/main/kohya-LoRA-dreambooth.ipynb#scrollTo=slgjeYgd6pWp">Link</a></td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>Kohya GUI</td>
-        <td><a href="https://github.com/bmaltais/kohya_ss#finetune">Link</a></td>
-        <td><a href="https://github.com/bmaltais/kohya_ss/discussions/379">Link</a></td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>CloneofSimo</td>
-        <td><a href="https://github.com/cloneofsimo/lora">Link</a></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
+<h2>Getting started</h2>
+<p>For resources on training models including code repositories and notebooks, visit the “Training Resources” page.</p>
+<h2>Model training - guides</h2>
+<ul>
+  <li><a href="https://rentry.org/lora-training-science">https://rentry.org/lora-training-science</a></li>
+  <li><a href="https://rentry.org/lora_train">https://rentry.org/lora_train</a></li>
+</ul>
 <h2>Inference</h2>
 <h4>Auto1111</h4>
 <ul>
@@ -93,8 +32,3 @@ dateCreated: 2023-04-15T17:30:42.006Z
 <p><strong>LoHA </strong>-<strong> </strong>LoRA with Hadamard Product representation (LoHa). A specific type of LoRA which is more parameter efficient (<a href="https://github.com/KohakuBlueleaf/LyCORIS">source</a>, <a href="https://www.reddit.com/r/StableDiffusion/comments/11rbada/what_the_hell_is_a_loconloha_model/">source</a>)</p>
 <p><strong>LoCon - </strong>LoRA using convolution (<a href="https://www.reddit.com/r/StableDiffusion/comments/11oz3z9/what_are_lycoris_lockon_models_and_what_is/">source</a>)</p>
 <p><strong>Alpha&nbsp;</strong> - a LoRA training parameter which scales weight changes during training. Should be set relative to rank - “By setting alpha = dim you get alpha/dim = 1, which results in no scaling” (<a href="https://rentry.org/lora-training-science#network-alpha-20923">source</a>)</p>
-<h2>Guides</h2>
-<ul>
-  <li><a href="https://rentry.org/lora-training-science">https://rentry.org/lora-training-science</a></li>
-  <li><a href="https://rentry.org/lora_train">https://rentry.org/lora_train</a></li>
-</ul>
