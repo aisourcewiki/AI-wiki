@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T17:33:58.479Z
+date: 2023-04-16T17:36:29.582Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -15,6 +15,12 @@ dateCreated: 2023-04-08T19:53:51.877Z
 <p>Models can be created either from scratch (e.g. Stable Diffusion), or can be developed from existing models, through a process known as “fine tuning”. Since the former is extremely expensive and impractical for most casual users, we'll focus on fine tuning.&nbsp;</p>
 <h3>Purpose for fine tuning&nbsp;</h3>
 <p>Taking SD as an example, the base Stable Diffusion model has already been trained on literally billions of labeled images from across the internet (<a href="https://simonwillison.net/2022/Sep/5/laion-aesthetics-weeknotes/">source</a>). While you might think that should cover all possible needs, it often isn't.</p>
+<p>Fine tuning is often considered because you want to teach the base model a “concept", which it doesn't already know.&nbsp;</p>
+<ul>
+  <li><strong>A subject </strong>- a person (e.g. Taylor Swift) or an animal</li>
+  <li><strong>An object</strong> - a soccer ball, car, or building</li>
+  <li><strong>A style </strong>- the painting style of Pablo Picasso, the photography style of Ansel Adams</li>
+</ul>
 <p>What are some reasons you might want to fine tune?</p>
 <ul>
   <li><strong>Missing data</strong> - the relevant data for what you want is entirely missing from the base model's training dataset. Example - since base SD doesn't really know what a “tetrahedron” is, you can't prompt for it (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=tetrahedron&amp;_sort=rowid">source</a>).</li>
@@ -54,12 +60,7 @@ dateCreated: 2023-04-08T19:53:51.877Z
 </ul>
 <p>As mentioned in the last step, the process above is meant to be iterative. It's fairly normal to test out multiple variations of captioning strategies or training parameter settings before arriving at good results.</p>
 <h3>1) Picking a concept</h3>
-<p>A concept can often be one of 3 things:</p>
-<ul>
-  <li>A subject - a person (e.g. Taylor Swift) or an animal</li>
-  <li>An object - a soccer ball, car, or building</li>
-  <li>A style - the painting style of Pablo Picasso, the photography style of Ansel Adams</li>
-</ul>
+<p>&nbsp;</p>
 <h3>2a) Images</h3>
 <p>&nbsp;</p>
 <h3>2b) Captioning</h3>
