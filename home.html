@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T17:21:46.319Z
+date: 2023-04-16T17:26:00.066Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -14,6 +14,12 @@ dateCreated: 2023-04-08T19:53:51.877Z
 <p>Model training is the process of teaching a text-to-image model, so that it can produce the requested images. For text-to-image models, the model learns from training examples composed of images and their associated captions. By looking at many such examples, the model learns to associate words (e.g. cat) with their visual representations.</p>
 <p>Models can be created either from scratch (e.g. Stable Diffusion), or can be developed from existing models, through a process known as “fine tuning”. Since the former is extremely expensive and impractical for most casual users, we'll focus on fine tuning.&nbsp;</p>
 <h3>Purpose for fine tuning&nbsp;</h3>
+<p>Taking SD as an example, the base Stable Diffusion model has already been trained on literally billions of labeled images from across the internet (<a href="https://simonwillison.net/2022/Sep/5/laion-aesthetics-weeknotes/">source</a>). While you might think that should cover all possible needs, it often isn't.</p>
+<p>What are some reasons you might want to fine tune?</p>
+<ul>
+  <li><strong>Missing data</strong> - the relevant data for what you want is entirely missing from the base dataset.&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
 <h3>Fine tuning process</h3>
 <p>The process for fine tuning a model is as follows, at a high level:</p>
 <ul>
