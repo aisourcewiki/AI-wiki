@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T17:10:17.436Z
+date: 2023-04-16T17:14:33.774Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -44,9 +44,10 @@ dateCreated: 2023-04-08T19:53:51.877Z
   </li>
 </ul>
 <p>As mentioned in the last step, the process above is meant to be iterative. It's fairly normal to test out multiple variations of captioning strategies or training parameter settings before arriving at good results.</p>
-<h3>Captioning</h3>
+<h3>2b) Captioning</h3>
 <p>Captioning is the process by which you help the model understand what is in your images, and also help create associations between words and specific visual representations.&nbsp;</p>
-<p>Ca</p>
+<p>When captioning, you should keep in mind the captions used in the base model you trained on. If you are training on a model using booru tags, which are based on multiple words/phrases separated by commas (e.g. “masterpiece, best quality, 1girl, green hair, sweater, looking at viewer”), then you should adopt a similar captioning strategy for your images.&nbsp;</p>
+<p>&nbsp;Captions can be very impactful on results and are often worth experimenting on.&nbsp;</p>
 <h3>Overtraining vs. undertraining</h3>
 <p>When training models, there is often a general tradeoff between accuracy and diversity of results.</p>
 <ul>
