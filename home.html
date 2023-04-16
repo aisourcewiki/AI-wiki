@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T17:26:00.066Z
+date: 2023-04-16T17:33:58.479Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -17,7 +17,9 @@ dateCreated: 2023-04-08T19:53:51.877Z
 <p>Taking SD as an example, the base Stable Diffusion model has already been trained on literally billions of labeled images from across the internet (<a href="https://simonwillison.net/2022/Sep/5/laion-aesthetics-weeknotes/">source</a>). While you might think that should cover all possible needs, it often isn't.</p>
 <p>What are some reasons you might want to fine tune?</p>
 <ul>
-  <li><strong>Missing data</strong> - the relevant data for what you want is entirely missing from the base dataset.&nbsp;</li>
+  <li><strong>Missing data</strong> - the relevant data for what you want is entirely missing from the base model's training dataset. Example - since base SD doesn't really know what a “tetrahedron” is, you can't prompt for it (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=tetrahedron&amp;_sort=rowid">source</a>).</li>
+  <li><strong>Quality of data</strong> - the underlying training dataset includes images, but they aren't high quality enough. Example - base SD's training dataset has many pictures of Pikachu, but the quality is highly inconsistent (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=pikachu&amp;_sort=rowid">source</a>).&nbsp;</li>
+  <li><strong>Aesthetic qualities</strong> - if the underlying training dataset has many relevant high quality images, but they are not consistently of the particular style or aesthetic that you want, it will often be difficult for the model to express your desired style (without a lot of prompt engineering, if it is possible at all). An alternate solution is just to fine tune a model with examples of the particular style, so the fine tuned model can express it easily.&nbsp;</li>
 </ul>
 <p>&nbsp;</p>
 <h3>Fine tuning process</h3>
