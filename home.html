@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T16:46:23.553Z
+date: 2023-04-16T17:07:37.212Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -48,8 +48,42 @@ dateCreated: 2023-04-08T19:53:51.877Z
 <p>When training models, there is often a general tradeoff between accuracy and diversity of results.</p>
 <ul>
   <li>Accuracy - your model's ability to express the target “concept”</li>
-  <li>Diversity - your model's ability to generalize to o</li>
+  <li>Diversity - your model's ability to generate a variety of images</li>
 </ul>
+<p>If you do not train for enough steps, your model will not be able to reproduce the concept you have in mind, even if prompted. In the table below, an undertrained model intended to express “Scooby Doo” will not be able to do so.</p>
+<p>However if you train for too many steps, while you may be able to reproduce the concept you have in mind, you will reduce the diversity of results across a variety of prompts. At this stage, prompts for “Scooby Doo” will often show him in exactly the same pose, while prompts for other subjects will suddenly start to show Scooby Doo as well.</p>
+<p>A “balanced” model will be able to show Scooby Doo in a variety of situations and poses, while also not unnecessarily affecting other prompts not related to Scooby Doo (e.g. “Dalmatian” or “Cat”). As a simple test, if you generate 4 images using the same prompt (e.g. “Scooby Doo sitting”), and all the images look accurate but are different enough, then you likely have a balanced model.</p>
+<p><strong>Comparison across all prompts</strong></p>
+<figure class="table">
+  <table>
+    <tbody>
+      <tr>
+        <td><strong><u>Actual image v / Prompt &gt;&nbsp;</u></strong></td>
+        <td><strong><u>“Scooby Doo”</u></strong></td>
+        <td><strong><u>“Dalmatian”</u></strong></td>
+        <td><strong><u>“Cat”</u></strong></td>
+      </tr>
+      <tr>
+        <td><strong>Undertrained</strong></td>
+        <td>(Random image)</td>
+        <td>Dalmatian</td>
+        <td>Cat</td>
+      </tr>
+      <tr>
+        <td><strong>Balanced</strong></td>
+        <td>Scooby Doo (diversity of poses)</td>
+        <td>Dalmatian</td>
+        <td>Cat</td>
+      </tr>
+      <tr>
+        <td><strong>Overtrained</strong></td>
+        <td>Scooby Doo (single pose repeated)</td>
+        <td>Scooby Doo</td>
+        <td>Scooby Doo</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
 <p>&nbsp;</p>
 <h3>Different ways to train</h3>
 <p>Comparing class images - Native fine tuning vs. Dreambooth</p>
