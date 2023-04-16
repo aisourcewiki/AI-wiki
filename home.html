@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T17:54:27.291Z
+date: 2023-04-16T18:06:31.983Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -24,7 +24,7 @@ dateCreated: 2023-04-08T19:53:51.877Z
 <p>The issue isn't always that the model doesn't understand the concept at all, although that is often the case. A few reasons to consider fine tuning for a specific concept include:</p>
 <ul>
   <li><strong>Missing data</strong> - the relevant data for what you want is entirely missing from the base model's training dataset. Example - since base SD doesn't really know what a “tetrahedron” is, you can't prompt for it (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=tetrahedron&amp;_sort=rowid">source</a>).</li>
-  <li><strong>Quality of data</strong> - the underlying training dataset includes images, but they aren't high quality enough. Example - base SD's training dataset has many pictures of Pikachu, but the quality is highly inconsistent (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=pikachu&amp;_sort=rowid">source</a>).&nbsp;</li>
+  <li><strong>Quality of data</strong> - the underlying training dataset includes images, but they aren't high quality enough. Example - base SD's training dataset has many pictures of Pikachu, but the quality is highly inconsistent (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=pikachu&amp;_sort=rowid">source</a>).</li>
   <li><strong>Aesthetic preferences</strong> - if the underlying training dataset has many relevant high quality images, but they are not consistently of the particular aesthetic you want, it can often be difficult to get the model to express the desired result. An alternate solution is just to fine tune a model with examples of the particular aesthetic, so the fine tuned model can express it easily. This can be an issue that affects concepts which are subjects, objects, or styles.</li>
 </ul>
 <h2>Fine tuning process</h2>
