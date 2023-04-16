@@ -2,33 +2,32 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T17:36:29.582Z
+date: 2023-04-16T17:54:27.291Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
 -->
 
 <h1>Model training</h1>
-<h3>Overview</h3>
+<h2>Overview</h2>
 <p>The goal of a text-to-image model like Stable Diffusion is to produce “accurate” images based on a text prompt from the user.</p>
 <p>Model training is the process of teaching a text-to-image model, so that it can produce the requested images. For text-to-image models, the model learns from training examples composed of images and their associated captions. By looking at many such examples, the model learns to associate words (e.g. cat) with their visual representations.</p>
-<p>Models can be created either from scratch (e.g. Stable Diffusion), or can be developed from existing models, through a process known as “fine tuning”. Since the former is extremely expensive and impractical for most casual users, we'll focus on fine tuning.&nbsp;</p>
-<h3>Purpose for fine tuning&nbsp;</h3>
+<p>Models can be created either from scratch (e.g. Stable Diffusion), or can be developed from existing models, through a process known as “fine tuning”. Since the former is extremely expensive and impractical for most casual users, we'll focus on fine tuning. While there are also a variety of ways to fine tune (Dreambooth vs. native fine tuning, LoRA vs. full model), the below will cover mainly native fine tuning of a full model.</p>
+<h2>Purpose for fine tuning&nbsp;</h2>
 <p>Taking SD as an example, the base Stable Diffusion model has already been trained on literally billions of labeled images from across the internet (<a href="https://simonwillison.net/2022/Sep/5/laion-aesthetics-weeknotes/">source</a>). While you might think that should cover all possible needs, it often isn't.</p>
-<p>Fine tuning is often considered because you want to teach the base model a “concept", which it doesn't already know.&nbsp;</p>
+<p>Fine tuning is often considered because the base model to better express “concept".&nbsp;</p>
 <ul>
   <li><strong>A subject </strong>- a person (e.g. Taylor Swift) or an animal</li>
   <li><strong>An object</strong> - a soccer ball, car, or building</li>
   <li><strong>A style </strong>- the painting style of Pablo Picasso, the photography style of Ansel Adams</li>
 </ul>
-<p>What are some reasons you might want to fine tune?</p>
+<p>The issue isn't always that the model doesn't understand the concept at all, although that is often the case. A few reasons to consider fine tuning for a specific concept include:</p>
 <ul>
   <li><strong>Missing data</strong> - the relevant data for what you want is entirely missing from the base model's training dataset. Example - since base SD doesn't really know what a “tetrahedron” is, you can't prompt for it (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=tetrahedron&amp;_sort=rowid">source</a>).</li>
   <li><strong>Quality of data</strong> - the underlying training dataset includes images, but they aren't high quality enough. Example - base SD's training dataset has many pictures of Pikachu, but the quality is highly inconsistent (<a href="http://laion-aesthetic.datasette.io/laion-aesthetic-6pls/images?_search=pikachu&amp;_sort=rowid">source</a>).&nbsp;</li>
-  <li><strong>Aesthetic qualities</strong> - if the underlying training dataset has many relevant high quality images, but they are not consistently of the particular style or aesthetic that you want, it will often be difficult for the model to express your desired style (without a lot of prompt engineering, if it is possible at all). An alternate solution is just to fine tune a model with examples of the particular style, so the fine tuned model can express it easily.&nbsp;</li>
+  <li><strong>Aesthetic preferences</strong> - if the underlying training dataset has many relevant high quality images, but they are not consistently of the particular aesthetic you want, it can often be difficult to get the model to express the desired result. An alternate solution is just to fine tune a model with examples of the particular aesthetic, so the fine tuned model can express it easily. This can be an issue that affects concepts which are subjects, objects, or styles.</li>
 </ul>
-<p>&nbsp;</p>
-<h3>Fine tuning process</h3>
+<h2>Fine tuning process</h2>
 <p>The process for fine tuning a model is as follows, at a high level:</p>
 <ul>
   <li><strong>1) Decide concept&nbsp;</strong>
@@ -44,7 +43,7 @@ dateCreated: 2023-04-08T19:53:51.877Z
   </li>
   <li><strong>3) Pick base model</strong>
     <ul>
-      <li>Pick a base model that you want to train on top of. The more closely related the base model is to the concept you are trying to learn, the shorter your training process and the higher quality your results are likely to be. For instance, if you are training an anime character, consider starting from an anime model rather than a non-anime model like Stable Diffusion 1.5.</li>
+      <li>Pick a base model that you want to train on top of - e.g. Stable Diffusion 1.5, Anything V3</li>
     </ul>
   </li>
   <li><strong>4) Train model</strong>
@@ -60,16 +59,18 @@ dateCreated: 2023-04-08T19:53:51.877Z
 </ul>
 <p>As mentioned in the last step, the process above is meant to be iterative. It's fairly normal to test out multiple variations of captioning strategies or training parameter settings before arriving at good results.</p>
 <h3>1) Picking a concept</h3>
-<p>&nbsp;</p>
+<p>Pick a subject, object, or style that you want to be able to express.</p>
 <h3>2a) Images</h3>
-<p>&nbsp;</p>
+<p>The underlying images are probably the single most important thing contributing towards results. Try to pick images that are high resolution and also contain enough variety to teach the fine tuned model to express a diversity of outcomes.&nbsp;</p>
 <h3>2b) Captioning</h3>
 <p>Captioning is the process by which you help the model understand what is in your images, and also help create associations between words and specific visual representations.&nbsp;</p>
 <p>Captions NEED to be accurate. If you describe something completely random that is not in the image, you can confuse the model and “break” it, leading to undesirable and unexpected results.&nbsp;</p>
 <p>Anecdotally, terms that are at the start of the caption tend to be given a heavier weight by the model, so unless you are using some specific settings during training (e.g. shuffling around the captions terms), you should put more important stuff at the start.</p>
-<p>When captioning, you should keep in mind the captions used in the base model you trained on. If you are training on a model using booru tags, which are based on multiple words/phrases separated by commas (e.g. “masterpiece, best quality, 1girl, green hair, sweater, looking at viewer…"), then you should adopt a similar captioning strategy for your images.&nbsp;</p>
+<p>When captioning, you should also keep in mind the captions used in the base model you trained on. If you are training on a model using booru tags, which are based on multiple words/phrases separated by commas (e.g. “masterpiece, best quality, 1girl, green hair, sweater, looking at viewer…"), then you should adopt a similar captioning strategy for your images.&nbsp;</p>
 <p>Captions can be very impactful on results and are often worth experimenting on.&nbsp;</p>
-<h3>Overtraining vs. undertraining</h3>
+<h3>3) Pick a base model</h3>
+<p>The more closely related the base model is to the concept you are trying to learn, the shorter your training process and the higher quality your results are likely to be. For instance, if you are training an anime character, consider starting from an anime model rather than a non-anime model like Stable Diffusion 1.5.</p>
+<h3>4a) Overtraining vs. undertraining</h3>
 <p>When training models, there is often a general tradeoff between accuracy and diversity of results.</p>
 <ul>
   <li>Accuracy - your model's ability to express the target “concept”</li>
@@ -109,14 +110,9 @@ dateCreated: 2023-04-08T19:53:51.877Z
     </tbody>
   </table>
 </figure>
-<p>&nbsp;</p>
-<h3>Different ways to train</h3>
-<p>Comparing class images - Native fine tuning vs. Dreambooth</p>
-<p>Final file size - Loras vs. full models</p>
-<p>See other pages for resources</p>
-<h3>Important parameters</h3>
-<p>Epochs</p>
-<p>Batch size</p>
+<h3>4b) Training - choosing parameters</h3>
+<p>Refer to the glossary page for explanations on different parameters</p>
+<h2>Resources</h2>
 <h3>Notebooks &amp; code repositories</h3>
 <figure class="table">
   <table>
@@ -147,4 +143,3 @@ dateCreated: 2023-04-08T19:53:51.877Z
     </tbody>
   </table>
 </figure>
-<h3>Additional resources</h3>
