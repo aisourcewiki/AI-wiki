@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T16:23:11.466Z
+date: 2023-04-16T16:44:23.737Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -11,9 +11,39 @@ dateCreated: 2023-04-08T19:53:51.877Z
 <h1>Model training</h1>
 <h3>Overview</h3>
 <p>The goal of a text-to-image model like Stable Diffusion is to produce “accurate” images based on a text prompt from the user.</p>
-<p>Assume we are training a model “from scratch”.&nbsp;</p>
-<p>&nbsp;</p>
-<p>Model training the process of teaching a machine learning model. For text-to-image models, the model learns from training examples composed of images and their associated captions. Training can either be “from scratch” (the model starts with no knowledge) or “fine tuning” (the model begins with some knowledge, but you teach it additional things).</p>
+<p>Model training is the process of teaching a text-to-image model, so that it can produce the requested images. For text-to-image models, the model learns from training examples composed of images and their associated captions. By looking at many such examples, the model learns to associate words (e.g. cat) with their visual representations.</p>
+<p>Models can be created either from scratch (e.g. Stable Diffusion), or can be developed from existing models, through a process known as “fine tuning”. Since the former is extremely expensive and impractical for most casual users, we'll cover fine tuning below.&nbsp;</p>
+<h3>Fine tuning process</h3>
+<p>The process for fine tuning a model is as follows, at a high level:</p>
+<ul>
+  <li><strong>1) Decide concept&nbsp;</strong>
+    <ul>
+      <li>Decide on a concept you want to teach your model</li>
+    </ul>
+  </li>
+  <li><strong>2) Gather training data&nbsp;</strong>
+    <ul>
+      <li>Find a set of high quality training images relevant to the concept you have in mind</li>
+      <li>(Optional) Describe the contents of the training images, either manually or using an automated system like BLIP or by hand</li>
+    </ul>
+  </li>
+  <li><strong>3) Pick base model</strong>
+    <ul>
+      <li>Pick a base model that you want to train on top of. The more closely related the base model is to the concept you are trying to learn, the shorter your training process and the higher quality your results are likely to be. If you are training an anime character, consider starting from an anime model rather than a non-anime model like Stable Diffusion 1.5.</li>
+    </ul>
+  </li>
+  <li><strong>4) Train model</strong>
+    <ul>
+      <li>Use an existing notebook or script to train your model</li>
+    </ul>
+  </li>
+  <li><strong>5) Model evaluation</strong>
+    <ul>
+      <li>Test the output of your model to see if it is good enough. If not, revise the work from earlier steps and then repeat this process until desired results are achieved.</li>
+    </ul>
+  </li>
+</ul>
+<p>As mentioned in the last step, the process above is meant to be iterative. It's fairly normal to test out multiple variations of captioning strategies or training parameter settings before arriving at good results.</p>
 <h3>Overtraining vs. undertraining</h3>
 <p>Using sample images</p>
 <p>&nbsp;</p>
