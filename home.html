@@ -2,7 +2,7 @@
 title: Model training
 description: 
 published: true
-date: 2023-04-16T17:14:33.774Z
+date: 2023-04-16T17:21:46.319Z
 tags: 
 editor: ckeditor
 dateCreated: 2023-04-08T19:53:51.877Z
@@ -12,7 +12,8 @@ dateCreated: 2023-04-08T19:53:51.877Z
 <h3>Overview</h3>
 <p>The goal of a text-to-image model like Stable Diffusion is to produce “accurate” images based on a text prompt from the user.</p>
 <p>Model training is the process of teaching a text-to-image model, so that it can produce the requested images. For text-to-image models, the model learns from training examples composed of images and their associated captions. By looking at many such examples, the model learns to associate words (e.g. cat) with their visual representations.</p>
-<p>Models can be created either from scratch (e.g. Stable Diffusion), or can be developed from existing models, through a process known as “fine tuning”. Since the former is extremely expensive and impractical for most casual users, we'll cover fine tuning below.&nbsp;</p>
+<p>Models can be created either from scratch (e.g. Stable Diffusion), or can be developed from existing models, through a process known as “fine tuning”. Since the former is extremely expensive and impractical for most casual users, we'll focus on fine tuning.&nbsp;</p>
+<h3>Purpose for fine tuning&nbsp;</h3>
 <h3>Fine tuning process</h3>
 <p>The process for fine tuning a model is as follows, at a high level:</p>
 <ul>
@@ -44,10 +45,21 @@ dateCreated: 2023-04-08T19:53:51.877Z
   </li>
 </ul>
 <p>As mentioned in the last step, the process above is meant to be iterative. It's fairly normal to test out multiple variations of captioning strategies or training parameter settings before arriving at good results.</p>
+<h3>1) Picking a concept</h3>
+<p>A concept can often be one of 3 things:</p>
+<ul>
+  <li>A subject - a person (e.g. Taylor Swift) or an animal</li>
+  <li>An object - a soccer ball, car, or building</li>
+  <li>A style - the painting style of Pablo Picasso, the photography style of Ansel Adams</li>
+</ul>
+<h3>2a) Images</h3>
+<p>&nbsp;</p>
 <h3>2b) Captioning</h3>
 <p>Captioning is the process by which you help the model understand what is in your images, and also help create associations between words and specific visual representations.&nbsp;</p>
-<p>When captioning, you should keep in mind the captions used in the base model you trained on. If you are training on a model using booru tags, which are based on multiple words/phrases separated by commas (e.g. “masterpiece, best quality, 1girl, green hair, sweater, looking at viewer”), then you should adopt a similar captioning strategy for your images.&nbsp;</p>
-<p>&nbsp;Captions can be very impactful on results and are often worth experimenting on.&nbsp;</p>
+<p>Captions NEED to be accurate. If you describe something completely random that is not in the image, you can confuse the model and “break” it, leading to undesirable and unexpected results.&nbsp;</p>
+<p>Anecdotally, terms that are at the start of the caption tend to be given a heavier weight by the model, so unless you are using some specific settings during training (e.g. shuffling around the captions terms), you should put more important stuff at the start.</p>
+<p>When captioning, you should keep in mind the captions used in the base model you trained on. If you are training on a model using booru tags, which are based on multiple words/phrases separated by commas (e.g. “masterpiece, best quality, 1girl, green hair, sweater, looking at viewer…"), then you should adopt a similar captioning strategy for your images.&nbsp;</p>
+<p>Captions can be very impactful on results and are often worth experimenting on.&nbsp;</p>
 <h3>Overtraining vs. undertraining</h3>
 <p>When training models, there is often a general tradeoff between accuracy and diversity of results.</p>
 <ul>
